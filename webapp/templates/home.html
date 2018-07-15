@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    String Match Home Page
+{% endblock %}
+
+{% block page_content %}
+
+  <div class="container">
+      
+      
+      <img class="img-responsive" src={{ url_for('static', filename="strings.jpg") }} style="float:left;width:35%;height:45%;padding-right:20px" >
+
+       <h3>About this application:</h3>
+        <strong>
+         <p>This application has three forms.</p> 
+
+         <p>Using the first form ("Match Given Strings" link in the top navigation bar)
+          you can match two arbitrary strings of your choice by entering them in two 
+          text boxes labeled "String 1" and "String 2", and pressing the "Match" button. The application returns
+          and displays two numbers:
+          </p>
+          <p>n1 : Number of letters in one string that each match in value and in position to a letter in the other string.</p>
+          <p>n2 : Number of letters in one string that each match in value, but not in position to a letter in the other string.</p>
+
+         <p>In the second form ("Generate Strings" link in the top navigation bar) you can generate a set 
+         of strings of random length, using characters randomly selected from a set of characters (i.e. Alphabet) 
+         that you speficy. If you do not specify an Alphabet, then default will be the set of 26 English lowercase 
+         characters. In addition to specifying the Alphabet, you also specify the number of strings to be generated
+         and the maxmimum lenght of those strings. When you click "Generate" button, the application generates strings
+         and stores them in a database along with their corresponding string_id values. These IDs are sequentially assigned 
+         from 1 to the maximum number of strings generated. Furthermore, every time you run the "Generate Strings" functionality, 
+         the previously stored strings are deleted from the database, and the new ones are entered.
+         </p>
+
+         <p>In the third form ("Match Strings From Database" link in the top navigation bar), you can select two strings 
+         from the set of strings previously entered in the deatabase, by specifying
+         their string IDs. When you submit the form by clicking "Match" button, the program compares thetwo strings, and returns
+         and displays the count positional and non-positional matches (n1 and n2 respectively just as in the first form): </p>
+
+          The algorithm corfoms with the following conditions:
+         <ul>
+            <li>
+              The output should be the same if the two strings were swapped.
+            </li>
+            <li>
+              Each letter instance in a string may only participate in one match.
+            </li>
+            <li>
+              If a letter instance can participate in either n1 or n2, it is to be counted towards n1.
+            </li>
+            <li>
+              The two strings may or may not be of the same length.
+            </li>
+         </ul>
+        </strong>
+
+  </div>
+
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    String Match Home Page
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="container well">
+      <strong>
+          Use this form to generate a specified number of random strings, with lengths varying 
+          from 1 to a maximum length specified below, and created using characters in the alphabet specified
+          below. The strings are stored in a database, along with String IDs (assigned sequentially starting
+          with 1). They can later be fetched from the database using their string IDs for comparing in order 
+          to find any positional or non-positional character matches. If "Alphabet" text-box is left blank
+          then lowercase English characters will be used as the default.
+      </strong>
+    </div>
+
+    <div class="container well">
+      <form method="POST">
+        <div class="form-group">
+          <input type="text" name="alphabet">  
+          <label for="alphabet">Alphabet: Characters to use in strings (default is ascii_lowercase)</label>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="noStrings">  
+          <label for="noStrings">Number of strings to be generated</label>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="maxLength">  
+          <label for="maxLength">Maximum length for strings to be generated</label>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" name ="submit" value="Generate">
+        </div>
+      </form>
+    </div>
+
+
+    {% if count is not none %}
+      <div class="container well">
+        <h3> Totals no. of strings created: {{ count }} </h3>
+      </div>
+    {% endif  %}
+
+
+{% endblock %}
+

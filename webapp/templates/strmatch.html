@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    String Matching
+{% endblock %}
+
+{% block page_content %}
+    <div class="container well">
+      <strong>
+          Use this form to compare two given strings. Enter the two strings 
+          to be compared into the two text boxes labeled "String 1" and "String 2"
+          and press the "Match" button. It will execute the matching and  return the
+          number of positional and non-positional character matches n1 and n2 
+          respectively.
+      </strong>
+    </div>
+
+    
+    <div class="container well">
+      <form method="POST">
+
+        <div class="form-group">
+          <input type="text" name="str1">
+          <label for="str1">String 1</label>
+        </div>
+        <div class="form-group">
+          <input type="text" name="str2">
+          <label for="str2">String 2</label>
+        </div>
+        <div class="form-group">
+          <input type="submit" name ="submit" value="Match">
+        </div>
+      </form>
+
+    </div>
+
+      {% if d['n1'] is not none %}
+        <div class="container well">
+         <h3> Number of positional matches(n1) = {{ d['n1'] }} </h3>
+      {% endif  %}
+
+      {% if d['n2'] is not none %}
+         <h3> Number of non-positional matches(n2) = {{ d['n2'] }} </h3>
+        </div>
+      {% endif  %}
+
+{% endblock %}
+

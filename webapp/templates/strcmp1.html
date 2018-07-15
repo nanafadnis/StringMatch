@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>String Matching</title>
+  </head>
+  <body>
+
+    <form method="POST">
+          <input type="text" name="str1_id"><strong>String 1 ID</strong>
+        <p>
+          <input type="text" name="str2_id"><strong>String 1 ID</strong>
+        </p>
+        <p>
+          <input type="submit" name ="submit" value="Submit">
+        </p>
+    </form>
+
+    {% if n1 is not none %}
+      <h3> n1 = {{ n1 }} </h3>
+    {% endif  %}
+
+    {% if n2 is not none %}
+      <h3> n2 = {{ n2 }} </h3>
+    {% endif  %}
+
+  </body>
+</html>

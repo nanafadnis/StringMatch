@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    String Matching
+{% endblock %}
+
+{% block page_content %}
+    <div class="container well">
+      <strong>
+          This form is to be used for selecting two strings from the database using string IDs
+          and comparing them to find any positional or non-positional character matches.
+      </strong>
+    </div>
+
+    
+    <div class="container well">
+      <form method="POST">
+
+        <div class="form-group">
+          <input type="text" name="str1_id">
+          <label for="str1_id">String 1 ID</label>
+        </div>
+        <div class="form-group">
+          <input type="text" name="str2_id">
+          <label for="str2_id">String 2 ID</label>
+        </div>
+        <div class="form-group">
+          <input type="submit" name ="submit" value="Match">
+        </div>
+      </form>
+
+      {% if d['min_id']  %}
+         <h3> Minimum String ID: = {{ d['min_id'] }} </h3>
+      {% endif  %}
+
+      {% if d['max_id']  %}
+         <h3> Maximum String ID: = {{ d['max_id'] }} </h3>
+      {% endif  %}
+
+    </div>
+
+      {% if d['n1'] is not none %}
+        <div class="container well">
+         <h3> Number of positional matches(n1) = {{ d['n1'] }} </h3>
+      {% endif  %}
+
+      {% if d['n2'] is not none %}
+         <h3> Number of non-positional matches(n2) = {{ d['n2'] }} </h3>
+        </div>
+      {% endif  %}
+
+{% endblock %}
+
